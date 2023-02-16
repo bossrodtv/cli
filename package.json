@@ -1,0 +1,48 @@
+{
+  "name": "@bossrodtv/create-app",
+  "version": "0.0.1",
+  "bin": "./build/index.js",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "repository": "https://github.com/bossrodtv/create-app",
+  "homepage": "https://github.com/bossrodtv/create-app#readme.md",
+  "bugs": {
+    "url": "https://github.com/bossrodtv/create-app/issues"
+  },
+  "contributors": [
+    {
+      "name": "Rodrick Alcantara",
+      "url": "https://github.com/constROD"
+    }
+  ],
+  "description": "Ready made CLI for creating a new app with typescript, eslint, prettier and husky",
+  "author": "Rodrick Alcantara <rialcantara21@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon ./cli/index.ts",
+    "build": "tsc",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "@types/clear": "^0.1.2",
+    "@types/figlet": "^1.5.5",
+    "@types/gradient-string": "^1.1.2",
+    "@types/inquirer": "^9.0.3",
+    "@types/node": "^18.13.0",
+    "husky": "^6.0.0",
+    "prettier": "^2.5.1",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.2",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "chalk": "4.1.2",
+    "clear": "^0.1.0",
+    "figlet": "^1.5.2",
+    "gradient-string": "^2.0.2",
+    "inquirer": "^8.2.5"
+  }
+}
