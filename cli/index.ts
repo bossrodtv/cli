@@ -88,11 +88,11 @@ const run = async () => {
   if (errorClean) return process.exit(-1);
 
   if (isInstallDependencies) {
-    console.log(chalk.green('- Installing the dependencies.'));
-
     packageManager = (await askPackageManager()).packageManager;
 
-    const installCommand = `${packageManager} install`;
+    const installCommand = `cd ${appName} && ${packageManager} install`;
+
+    console.log(chalk.green('- Installing the dependencies.'));
 
     const { error: errorInstall } = runCommand(installCommand);
     if (errorInstall) return process.exit(-1);
