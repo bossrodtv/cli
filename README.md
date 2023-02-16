@@ -16,16 +16,16 @@ Ready made CLI for creating a new app with typescript, eslint, prettier and comm
 - Install
 
 ```bash
-  $ npx @bossrodtv/create-app
+  npx @bossrodtv/create-app@latest
 ```
 
 - Navigate to your application and start coding.
 
 ```bash
-  $ cd {app-name}
-  $ pnpm dev # For web, serverless & node
-  $ pnpm dev:android # For react-native only (android)
-  $ pnpm dev:ios # For react-native only (ios)
+  cd {app-name}
+  pnpm dev # For web, serverless & node
+  pnpm dev:android # For react-native only (android)
+  pnpm dev:ios # For react-native only (ios)
 ```
 
 ## Authors

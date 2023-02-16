@@ -59,6 +59,7 @@ const run = async () => {
   let cloneCommand = '';
   let cleanCommand = '';
   let installCommand = '';
+  let packageManager: PACKAGE_MANAGER_TYPES | null = null;
 
   const { appName } = await askAppName();
 
@@ -75,16 +76,14 @@ const run = async () => {
 
   const { isInstallDependencies } = await askInstallDependencies();
 
-  let packageManager: PACKAGE_MANAGER_TYPES | null = null;
-
   if (isInstallDependencies) console.log(chalk.green('- Your wish is my command.'));
 
   cloneCommand = `git clone --depth 1 https://github.com/constrod/template-${appType}-ts ${appName}`;
   cleanCommand = `cd ${appName} && rm -rf .git`;
 
   if (isInstallDependencies) {
-    const data = await askPackageManager();
-    packageManager = data.packageManager;
+    const answer = await askPackageManager();
+    packageManager = answer.packageManager;
     installCommand = `cd ${appName} && ${packageManager} install`;
   }
 
@@ -96,7 +95,7 @@ const run = async () => {
   const { error: errorClean } = runCommand(cleanCommand);
   if (errorClean) process.exit(-1);
 
-  if (isInstallDependencies) {
+  if (isInstallDependencies && packageManager) {
     const { error: errorInstall } = runCommand(installCommand);
     if (errorInstall) process.exit(-1);
     console.log(chalk.green('- Installing the dependencies.'));
