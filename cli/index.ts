@@ -83,7 +83,8 @@ const run = async () => {
   cleanCommand = `cd ${appName} && rm -rf .git`;
 
   if (isInstallDependencies) {
-    packageManager = (await askPackageManager()).packageManager;
+    const data = await askPackageManager();
+    packageManager = data.packageManager;
     installCommand = `cd ${appName} && ${packageManager} install`;
   }
 
