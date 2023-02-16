@@ -92,10 +92,10 @@ const run = async () => {
 
     const installCommand = `cd ${appName} && ${packageManager} install`;
 
-    console.log(chalk.green('- Installing the dependencies.'));
-
     const { error: errorInstall } = runCommand(installCommand);
     if (errorInstall) return process.exit(-1);
+
+    console.log(chalk.green('- Installing the dependencies.'));
   }
 
   console.log(gradient.mind(figlet.textSync('Happy Hacking', { horizontalLayout: 'full' })));
