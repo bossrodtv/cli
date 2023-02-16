@@ -16,7 +16,7 @@
       "url": "https://github.com/constROD"
     }
   ],
-  "description": "Ready made CLI for creating a new app with typescript, eslint, prettier and husky",
+  "description": "Ready made CLI for creating a new app with typescript, eslint, prettier and commitlint.",
   "author": "Rodrick Alcantara <rialcantara21@gmail.com>",
   "license": "MIT",
   "scripts": {

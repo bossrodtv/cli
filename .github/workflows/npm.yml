@@ -8,16 +8,27 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: main
-      # Setup .npmrc file to publish to npm
+
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 7.0.1
+
       - uses: actions/setup-node@v2
         with:
           node-version: 16.13.0
           registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM }}
-      - run: |
-          yarn && yarn build
-          npm publish --access=public
+
+      - name: Install & Build
+        run: |
+          pnpm install --frozen-lockfile --ignore-scripts  
+          pnpm build
+
+      - name: Publish
+        run: |
+          pnpm publish --access=public

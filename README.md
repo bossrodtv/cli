@@ -1,29 +1,28 @@
-# @constrod/create-app
+# @bossrodtv/create-app
 
-A custom CLI that provides a template for different tools for development.
+Ready made CLI for creating a new app with typescript, eslint, prettier and commitlint.
 
-## List of app supported:
-
-- node-ts
-- react-ts
-- react-native-ts
-- next-ts
-- svelte-kit-ts
-- serverless-ts
+| List of app supported |
+| :-------------------- |
+| node                  |
+| react                 |
+| react-native          |
+| next                  |
+| svelte-kit            |
+| serverless            |
 
 ## How to use:
 
-Install
+- Install
 
 ```bash
-  $ npx @constrod/create-app
+  $ npx @bossrodtv/create-app
 ```
 
-Go to the project directory. Install and start the application
+- Navigate to your application and start coding.
 
 ```bash
-  $ cd {folder-name}
-  $ pnpm i
+  $ cd {app-name}
   $ pnpm dev # For web, serverless & node
   $ pnpm dev:android # For react-native only (android)
   $ pnpm dev:ios # For react-native only (ios)
