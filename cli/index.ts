@@ -82,8 +82,14 @@ const run = async () => {
   cleanCommand = `cd ${appName} && rm -rf .git`;
 
   if (isInstallDependencies) {
-    const answer = await askPackageManager();
-    packageManager = answer.packageManager;
+    if (appType === 'react-native') {
+      console.log(chalk.yellow('- Note: Only pnpm is supported for react-native.'));
+      packageManager = 'pnpm';
+    } else {
+      const answer = await askPackageManager();
+      packageManager = answer.packageManager;
+    }
+
     installCommand = `cd ${appName} && ${packageManager} install`;
   }
 
