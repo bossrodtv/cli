@@ -28,7 +28,7 @@ const askAppType = () =>
     {
       name: 'appType',
       type: 'list',
-      message: 'Select your application:',
+      message: 'What tool do you want to use?:',
       choices: APPS,
     },
   ]);
@@ -48,7 +48,7 @@ const askPackageManager = () =>
     {
       name: 'packageManager',
       type: 'list',
-      message: 'What package manager do you want?:',
+      message: 'What package manager do you want to use?:',
       choices: PACKAGE_MANAGERS,
       default: 'pnpm',
     },
@@ -56,6 +56,10 @@ const askPackageManager = () =>
 
 /* Handler */
 const run = async () => {
+  let cloneCommand = '';
+  let cleanCommand = '';
+  let installCommand = '';
+
   const { appName } = await askAppName();
 
   if (isFolderAlreadyExist(appName)) {
@@ -75,32 +79,31 @@ const run = async () => {
 
   if (isInstallDependencies) console.log(chalk.green('- Your wish is my command.'));
 
-  const cloneCommand = `git clone --depth 1 https://github.com/constrod/template-${appType}-ts ${appName}`;
+  cloneCommand = `git clone --depth 1 https://github.com/constrod/template-${appType}-ts ${appName}`;
+  cleanCommand = `cd ${appName} && rm -rf .git`;
+
+  if (isInstallDependencies) {
+    packageManager = (await askPackageManager()).packageManager;
+    installCommand = `cd ${appName} && ${packageManager} install`;
+  }
 
   const { error: errorClone } = runCommand(cloneCommand);
   if (errorClone) process.exit(-1);
 
   console.log(chalk.green('- Repository is cloned successfully.'));
 
-  const cleanCommand = `cd ${appName} && rm -rf .git`;
-
   const { error: errorClean } = runCommand(cleanCommand);
-  if (errorClean) return process.exit(-1);
+  if (errorClean) process.exit(-1);
 
   if (isInstallDependencies) {
-    packageManager = (await askPackageManager()).packageManager;
-
-    const installCommand = `cd ${appName} && ${packageManager} install`;
-
     const { error: errorInstall } = runCommand(installCommand);
-    if (errorInstall) return process.exit(-1);
-
+    if (errorInstall) process.exit(-1);
     console.log(chalk.green('- Installing the dependencies.'));
   }
 
   console.log(gradient.mind(figlet.textSync('Happy Hacking', { horizontalLayout: 'full' })));
   console.log('\n');
-  console.log(chalk.green('- You are now ready to build your amazing app.'));
+  console.log(chalk.green('- You are now ready to build your amazing project.'));
   console.log(chalk.green('- Navigate to your project:'));
   console.log(chalk.cyan(`> cd ${appName}`));
   return;
