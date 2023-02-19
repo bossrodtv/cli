@@ -23,6 +23,7 @@
     "dev": "nodemon ./cli/index.ts",
     "clean": "rm -rf ./dist",
     "build": "pnpm clean && tsup ./cli/index.ts --format cjs,esm --dts",
+    "publish": "pnpm build && pnpm changeset publish",
     "lint:types": "tsc",
     "format": "prettier --write ./cli/**/*.ts{,x}",
     "pre-commit": "lint-staged --allow-empty",
