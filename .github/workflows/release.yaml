@@ -25,16 +25,11 @@ jobs:
           node-version: 16.13.0
           cache: 'pnpm'
 
-      - name: Install Packages & Build
-        run: |
-          pnpm install --frozen-lockfile
-          pnpm build
-
       - name: Publish
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: pnpm publish --access=public
+          publish: pnpm build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
