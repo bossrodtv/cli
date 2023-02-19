@@ -30,16 +30,13 @@ jobs:
       - name: Install Packages
         run: pnpm install --frozen-lockfile
 
-      - name: Build
-        run: pnpm build
-
       - name: Create Release Pull Request or Publish
         id: changesets
         uses: changesets/action@v1.4.1
         with:
-          publish: npx changeset publish
-          commit: 'chore(release): version packages'
-          title: 'chore(release): version packages'
+          publish: pnpm publish
+          commit: 'chore(release): update version'
+          title: 'chore(release): update version'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
