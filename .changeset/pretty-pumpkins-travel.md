@@ -2,6 +2,6 @@
 '@bossrodtv/create-app': patch
 ---
 
-Updated prettier
+Added changeset
 Added tsup
-Added changesets
+Updated actions
