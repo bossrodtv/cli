@@ -8,7 +8,7 @@ on:
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  release:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,13 +28,24 @@ jobs:
       - name: Install Packages
         run: pnpm install --frozen-lockfile
 
-      - name: Publish
+      - name: Build
+        run: pnpm build
+
+      - name: Create Release Pull Request or Publish
         id: changesets
-        uses: changesets/action@v1
+        uses: changesets/action@v1.4.1
         with:
-          publish: pnpm publish
-          commit: 'chore: update version'
-          title: 'chore: update version'
+          publish: npx changeset publish
+          commit: 'chore(release): version packages'
+          title: 'chore(release): version packages'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  release:
+    if: steps.changesets.outputs.published == 'true'
+    needs: [publish]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
