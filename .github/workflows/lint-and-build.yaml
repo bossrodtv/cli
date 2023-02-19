@@ -1,0 +1,34 @@
+name: Lint & Build
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - labeled
+      - unlabeled
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.13.0
+          cache: 'pnpm'
+
+      - name: Install Packages
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint Types & Build
+        run: pnpm lint:types && pnpm build
