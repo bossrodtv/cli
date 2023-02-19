@@ -25,6 +25,9 @@ jobs:
           node-version: 16.13.0
           cache: 'pnpm'
 
+      - name: Install Packages
+        run: pnpm install --frozen-lockfile
+
       - name: Publish
         id: changesets
         uses: changesets/action@v1
