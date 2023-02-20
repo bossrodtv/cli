@@ -90,7 +90,8 @@ const run = async () => {
       packageManager = answer.packageManager;
     }
 
-    installCommand = `cd ${appName} && ${packageManager} install`;
+    const installOption = packageManager === 'npm' ? '--legacy-peer-deps' : '--frozen-lockfile';
+    installCommand = `cd ${appName} && ${packageManager} install ${installOption}`;
   }
 
   const { error: errorClone } = runCommand(cloneCommand);
