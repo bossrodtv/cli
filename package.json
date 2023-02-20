@@ -1,6 +1,6 @@
 {
   "name": "@bossrodtv/create-app",
-  "version": "0.0.12",
+  "version": "0.0.11",
   "bin": "./dist/index.js",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
@@ -23,7 +23,7 @@
     "dev": "nodemon ./cli/index.ts",
     "clean": "rm -rf ./dist",
     "build": "pnpm clean && tsup ./cli/index.ts --format cjs,esm --dts",
-    "release": "pnpm build && npx changeset publish",
+    "release": "pnpm build && changeset publish",
     "lint:types": "tsc",
     "format": "prettier --write ./cli/**/*.ts{,x}",
     "pre-commit": "lint-staged --allow-empty",
