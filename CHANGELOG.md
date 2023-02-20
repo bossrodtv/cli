@@ -1,5 +1,11 @@
 # @bossrodtv/create-app
 
+## 0.0.14
+
+### Patch Changes
+
+- d061382: Added additional option argument in install command
+
 ## 0.0.13
 
 ### Patch Changes
