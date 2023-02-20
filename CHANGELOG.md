@@ -1,5 +1,11 @@
 # @bossrodtv/create-app
 
+## 0.0.13
+
+### Patch Changes
+
+- 03457d6: Updated changeset
+
 ## 0.0.12
 
 ### Patch Changes
