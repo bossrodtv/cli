@@ -4,6 +4,12 @@
 
 ### Patch Changes
 
+- e543ab1: Updated scripts
+
+## 0.0.12
+
+### Patch Changes
+
 - 0e9809a: Updated release.yaml
 
 ## 0.0.11
