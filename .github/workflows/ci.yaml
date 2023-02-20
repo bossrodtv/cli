@@ -1,13 +1,6 @@
 name: CI
 
-on:
-  pull_request_target:
-    types:
-      - opened
-      - edited
-      - synchronize
-      - labeled
-      - unlabeled
+on: [pull_request]
 
 jobs:
   build:
@@ -16,19 +9,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      # - name: Setup pnpm
-      #   uses: pnpm/action-setup@v2.2.4
-      #   with:
-      #     version: 7
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.4
+        with:
+          version: 7
 
-      # - name: Setup Node.js
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: 16.13.0
-      #     cache: 'pnpm'
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.13.0
+          cache: 'pnpm'
 
-      # - name: Install Packages
-      #   run: pnpm install --frozen-lockfile
+      - name: Install Packages
+        run: pnpm install --frozen-lockfile
 
-      # - name: Lint Types & Build
-      #   run: pnpm lint:types && pnpm build
+      - name: Lint Types
+        run: pnpm lint:types
