@@ -1,5 +1,11 @@
 # @bossrodtv/create-app
 
+## 0.0.12
+
+### Patch Changes
+
+- 0e9809a: Updated release.yaml
+
 ## 0.0.11
 
 ### Patch Changes
