@@ -1,6 +1,6 @@
 {
   "name": "@bossrodtv/create-app",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "bin": "./dist/index.js",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
