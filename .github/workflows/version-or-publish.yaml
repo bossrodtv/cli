@@ -1,4 +1,4 @@
-name: Release or Publish
+name: Version or Publish
 
 on:
   push:
@@ -39,7 +39,6 @@ jobs:
           publish: pnpm release
           commit: 'chore(release): update version'
           title: 'chore(release): update version'
-
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
