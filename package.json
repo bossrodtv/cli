@@ -24,8 +24,8 @@
     "clean": "rm -rf ./dist",
     "build": "pnpm clean && tsup ./cli/index.ts --format cjs,esm --dts",
     "release": "pnpm build && changeset publish",
-    "lint:types": "tsc",
     "format": "prettier --write ./cli/**/*.ts{,x}",
+    "lint:types": "tsc",
     "pre-commit": "lint-staged --allow-empty",
     "prepare": "husky install"
   },
