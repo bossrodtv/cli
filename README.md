@@ -8,7 +8,7 @@ Ready made CLI for creating a new app with typescript, eslint, prettier and comm
 | react                 |
 | react-native          |
 | next                  |
-| svelte-kit            |
+| sveltekit             |
 | serverless            |
 
 ## How to use:

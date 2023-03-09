@@ -90,7 +90,7 @@ const run = async () => {
       packageManager = answer.packageManager;
     }
 
-    const installOption = packageManager === 'npm' ? '--legacy-peer-deps' : '--frozen-lockfile';
+    const installOption = packageManager === 'npm' ? '--legacy-peer-deps' : '';
     installCommand = `cd ${appName} && ${packageManager} install ${installOption}`;
   }
 
