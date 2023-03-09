@@ -1,4 +1,4 @@
-export const APPS = ['node', 'react', 'react-native', 'next', 'svelte-kit', 'serverless'] as const;
+export const APPS = ['node', 'react', 'react-native', 'next', 'sveltekit', 'serverless'] as const;
 
 export type APP_TYPES = typeof APPS[number];
 
