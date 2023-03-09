@@ -1,5 +1,11 @@
 # @bossrodtv/create-app
 
+## 0.1.0
+
+### Minor Changes
+
+- a7ea4e5: Update installation step removed frozen lockfile.
+
 ## 0.0.14
 
 ### Patch Changes
