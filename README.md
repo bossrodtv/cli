@@ -1,6 +1,6 @@
 # @bossrodtv/create-app
 
-Ready made CLI for creating a new app with typescript, eslint, prettier and commitlint.
+Ready made CLI for creating a new app with typescript, eslint, prettier, commitlint and changeset.
 
 | List of app supported    |
 | :----------------------- |
