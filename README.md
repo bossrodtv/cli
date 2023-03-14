@@ -1,6 +1,6 @@
 # @bossrodtv/create-app
 
-Ready made CLI for creating a new app with typescript, eslint, prettier and commitlint.
+Ready made CLI for creating a new app with typescript, eslint, prettier, commitlint and changeset.
 
 | List of app supported    |
 | :----------------------- |
@@ -19,10 +19,10 @@ Ready made CLI for creating a new app with typescript, eslint, prettier and comm
   npx @bossrodtv/create-app@latest
 ```
 
-- Navigate to your application and start coding.
+- Navigate to your app folder and start coding.
 
 ```bash
-  cd {app-name}
+  cd <app-name>
   pnpm dev # For web, serverless & node
   pnpm dev:android # For react-native only (android)
   pnpm dev:ios # For react-native only (ios)
