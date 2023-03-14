@@ -1,5 +1,11 @@
 # @bossrodtv/create-app
 
+## 1.0.1
+
+### Patch Changes
+
+- 21a54dc: Updated README.md
+
 ## 1.0.0
 
 ### Major Changes
