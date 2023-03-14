@@ -5,7 +5,7 @@ import clear from 'clear';
 import figlet from 'figlet';
 import gradient from 'gradient-string';
 import inquirer from 'inquirer';
-import { APPS, APP_TYPES, PACKAGE_MANAGERS, PACKAGE_MANAGER_TYPES } from './constants';
+import { APPS, AppType, PackageManagerType, PACKAGE_MANAGERS } from './constants';
 import { isFolderAlreadyExist, runCommand } from './utils';
 
 /* Welcome Page */
@@ -24,7 +24,7 @@ const askAppName = () =>
   ]);
 
 const askAppType = () =>
-  inquirer.prompt<{ appType: APP_TYPES }>([
+  inquirer.prompt<{ appType: AppType }>([
     {
       name: 'appType',
       type: 'list',
@@ -44,7 +44,7 @@ const askInstallDependencies = () =>
   ]);
 
 const askPackageManager = () =>
-  inquirer.prompt<{ packageManager: PACKAGE_MANAGER_TYPES }>([
+  inquirer.prompt<{ packageManager: PackageManagerType }>([
     {
       name: 'packageManager',
       type: 'list',
@@ -59,7 +59,7 @@ const run = async () => {
   let cloneCommand = '';
   let cleanCommand = '';
   let installCommand = '';
-  let packageManager: PACKAGE_MANAGER_TYPES | null = null;
+  let packageManager: PackageManagerType | null = null;
 
   const { appName } = await askAppName();
 
