@@ -1,5 +1,12 @@
 # @bossrodtv/create-app
 
+## 1.0.2
+
+### Patch Changes
+
+- 61fd42f: Updated `README.md`
+  Added `cspell` to check unknown words.
+
 ## 1.0.1
 
 ### Patch Changes
