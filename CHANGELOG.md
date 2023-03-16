@@ -1,5 +1,11 @@
 # @bossrodtv/create-app
 
+## 1.1.0
+
+### Minor Changes
+
+- a86066c: Enabled serverless-ts template.
+
 ## 1.0.2
 
 ### Patch Changes
