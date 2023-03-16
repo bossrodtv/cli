@@ -2,14 +2,14 @@
 
 Ready made CLI for creating a new app with typescript, eslint, prettier, commitlint and changeset.
 
-| List of app supported    |
-| :----------------------- |
-| next                     |
-| react                    |
-| react-native             |
-| node (In Progress)       |
-| sveltekit (In Progress)  |
-| serverless (In Progress) |
+| List of app supported   |
+| :---------------------- |
+| next                    |
+| react                   |
+| react-native            |
+| serverless              |
+| node (In Progress)      |
+| sveltekit (In Progress) |
 
 ## How to use:
 
