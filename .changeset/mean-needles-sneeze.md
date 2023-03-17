@@ -1,5 +1,5 @@
 ---
-'@bossrodtv/create-app': major
+'@bossrodtv/create-app': minor
 ---
 
 Added templates folder
