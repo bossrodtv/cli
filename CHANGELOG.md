@@ -1,5 +1,11 @@
 # @bossrodtv/create-app
 
+## 1.2.0
+
+### Minor Changes
+
+- 2f2fd86: Added templates folder
+
 ## 1.1.0
 
 ### Minor Changes
