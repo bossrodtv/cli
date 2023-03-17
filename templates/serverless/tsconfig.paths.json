@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "functions/*": ["./src/functions/*"],
+      "modules/*": ["./src/modules/*"],
+      "shared/*": ["./src/shared/*"],
+      "serverless/*": ["./src/serverless/*"]
+    }
+  }
+}

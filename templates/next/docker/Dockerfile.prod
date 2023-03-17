@@ -1,0 +1,30 @@
+FROM node:16-buster-slim
+
+# Go to /app directory.
+WORKDIR /app
+
+# Add permission to the /app folder.
+RUN chmod -R 775 /app
+
+# Install pnpm globally.
+RUN npm i -g pnpm@7.17.0
+
+# Copy all required files from the repository for building the application.
+COPY svgr.config.js /app
+COPY postcss.config.js /app
+COPY tailwind.config.js /app
+COPY next.config.js /app
+COPY tsconfig.json /app
+COPY tsconfig.paths.json /app
+COPY package.json /app
+COPY pnpm-lock.yaml /app
+COPY public /app
+COPY styles /app
+COPY src /app
+
+# Install dependencies and build the application.
+RUN pnpm i
+RUN pnpm build
+
+# Start the application.
+CMD ["pnpm", "start", "-p", "80"]
