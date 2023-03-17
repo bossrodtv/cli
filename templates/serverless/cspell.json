@@ -16,9 +16,9 @@
     "npmjs"
   ],
   "ignorePaths": [
-    "node_modules/",
-    "build/",
-    "dist/",
+    "node_modules",
+    "build",
+    "dist",
     ".husky",
     "pnpm-lock.yaml",
     "package.json",

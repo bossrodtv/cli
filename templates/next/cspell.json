@@ -22,5 +22,5 @@
     "browserconfig",
     "mstile"
   ],
-  "ignorePaths": ["node_modules/", "build/", ".husky", "pnpm-lock.yaml", "package.json"]
+  "ignorePaths": ["node_modules", "build", ".husky", "pnpm-lock.yaml", "package.json"]
 }
