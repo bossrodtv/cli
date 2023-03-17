@@ -1,5 +1,13 @@
 # @bossrodtv/create-app
 
+## 1.3.0
+
+### Minor Changes
+
+- 7741731: Fix
+
+  - Removed templates from the create-app package
+
 ## 1.2.1
 
 ### Patch Changes
