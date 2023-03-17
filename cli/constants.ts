@@ -3,8 +3,9 @@ export const APPS = [
   'react',
   'react-native',
   'serverless',
-  'node (In Progress)',
-  'sveltekit (In Progress)',
+  // TODO: Uncomment when SvelteKit and Node are ready
+  // 'node',
+  // 'sveltekit',
 ] as const;
 
 export type AppType = typeof APPS[number];

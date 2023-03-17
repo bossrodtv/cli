@@ -56,9 +56,12 @@ const askPackageManager = () =>
 
 /* Handler */
 const run = async () => {
-  let cloneCommand = '';
-  let cleanCommand = '';
-  let installCommand = '';
+  let hasError = false;
+  let makeFolderCmd = '';
+  let addGitCmd = '';
+  let sparseCheckoutCmd = '';
+  let copyTemplateFolderCmd = '';
+  let installCmd = '';
   let packageManager: PackageManagerType | null = null;
 
   const { appName } = await askAppName();
@@ -78,8 +81,11 @@ const run = async () => {
 
   if (isInstallDependencies) console.log(chalk.green('- Your wish is my command.'));
 
-  cloneCommand = `git clone --depth 1 https://github.com/constrod/template-${appType}-ts ${appName}`;
-  cleanCommand = `cd ${appName} && rm -rf .git`;
+  const cleanCmd = `rm -rf ${appName}`;
+  makeFolderCmd = `mkdir ${appName}`;
+  addGitCmd = `cd ${appName} && git init && git remote add origin -f https://github.com/bossrodtv/create-app.git`;
+  sparseCheckoutCmd = `cd ${appName} && git config core.sparseCheckout true`;
+  copyTemplateFolderCmd = `cd ${appName} && git sparse-checkout set templates/${appType} && git pull origin main`;
 
   if (isInstallDependencies) {
     if (appType === 'react-native') {
@@ -91,21 +97,32 @@ const run = async () => {
     }
 
     const installOption = packageManager === 'npm' ? '--legacy-peer-deps' : '';
-    installCommand = `cd ${appName} && ${packageManager} install ${installOption}`;
+    installCmd = `cd ${appName} && ${packageManager} install ${installOption}`;
   }
 
-  const { error: errorClone } = runCommand(cloneCommand);
-  if (errorClone) process.exit(-1);
+  const { error: makeFolderCmdError } = runCommand(makeFolderCmd);
+  if (makeFolderCmdError) hasError = true;
+  const { error: addGitCmdError } = runCommand(addGitCmd);
+  if (addGitCmdError) hasError = true;
+  const { error: sparseCheckoutCmdError } = runCommand(sparseCheckoutCmd);
+  if (sparseCheckoutCmdError) hasError = true;
+  const { error: copyTemplateFolderCmdError } = runCommand(copyTemplateFolderCmd);
+  if (copyTemplateFolderCmdError) hasError = true;
 
-  console.log(chalk.green('- Repository is cloned successfully.'));
-
-  const { error: errorClean } = runCommand(cleanCommand);
-  if (errorClean) process.exit(-1);
+  console.log(chalk.green('- Project created successfully.'));
 
   if (isInstallDependencies && packageManager) {
-    const { error: errorInstall } = runCommand(installCommand);
-    if (errorInstall) process.exit(-1);
+    const { error: installCmdError } = runCommand(installCmd);
+    if (installCmdError) hasError = true;
     console.log(chalk.green('- Installing the dependencies.'));
+  }
+
+  if (hasError) {
+    console.log(chalk.red('- Cleaning up...'));
+    const { error: cleanCmdError } = runCommand(cleanCmd);
+    if (cleanCmdError) process.exit(-1);
+    console.log(chalk.green('- Clean up successfully.'));
+    process.exit(-1);
   }
 
   console.log(gradient.mind(figlet.textSync('Happy Hacking', { horizontalLayout: 'full' })));

@@ -1,0 +1,28 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "pnpm",
+    "commitlint",
+    "WORKDIR",
+    "middlewares",
+    "openapi",
+    "Redrive",
+    "esbuild",
+    "oracledb",
+    "middyfied",
+    "npmrc",
+    "constrod",
+    "npmjs"
+  ],
+  "ignorePaths": [
+    "node_modules",
+    "build",
+    "dist",
+    ".husky",
+    "pnpm-lock.yaml",
+    "package.json",
+    "docker-compose.yaml",
+    "Dockerfile"
+  ]
+}

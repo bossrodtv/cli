@@ -1,0 +1,32 @@
+node_modules
+
+.eslintcache
+.pnpm-store
+.serverless
+.esbuild
+
+build
+dist
+
+.DS_Store
+.env
+.env.*
+.env-encoded
+.npmrc
+.aws-credentials
+.aws-config
+*.tsbuildinfo
+
+!**.example
+
+# Remove the lock below if you're using npm
+*-lock.json
+# Remove the lock below if you're using pnpm
+*-lock.yaml
+# Remove the lock below if you're using yarn
+*.lock
+
+logs
+*.log
+*-debug.log*
+*-error.log*
