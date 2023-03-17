@@ -10,4 +10,4 @@
 
 **Take note:**
 
-- You will encounter an error when installing the packages about the `husky` just ignore it because that will not happen when that template cloned to the user's machine.
+- Although you may encounter an error when installing the packages related to husky, you can safely ignore it as this issue should not occur when the template is cloned to the user's machine.
