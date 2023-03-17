@@ -1,5 +1,12 @@
 # @bossrodtv/create-app
 
+## 1.2.1
+
+### Patch Changes
+
+- 1222f8e: Chore
+  Updated template's readme
+
 ## 1.2.0
 
 ### Minor Changes
