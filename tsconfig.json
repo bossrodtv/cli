@@ -10,6 +10,6 @@
     "noEmit": true,
     "baseUrl": "."
   },
-  "exclude": ["./node_modules", "./templates/**/*"],
+  "exclude": ["./node_modules"],
   "include": ["./cli/**/*.ts"]
 }

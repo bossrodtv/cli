@@ -57,11 +57,9 @@ const askPackageManager = () =>
 /* Handler */
 const run = async () => {
   let hasError = false;
-  let makeFolderCmd = '';
-  let addGitCmd = '';
-  let sparseCheckoutCmd = '';
-  let copyTemplateFolderCmd = '';
-  let installCmd = '';
+  let cloneCmd = '';
+  let removeGitCmd = '';
+  let installCommand = '';
   let packageManager: PackageManagerType | null = null;
 
   const { appName } = await askAppName();
@@ -82,10 +80,8 @@ const run = async () => {
   if (isInstallDependencies) console.log(chalk.green('- Your wish is my command.'));
 
   const cleanCmd = `rm -rf ${appName}`;
-  makeFolderCmd = `mkdir ${appName}`;
-  addGitCmd = `cd ${appName} && git init && git remote add origin -f https://github.com/bossrodtv/create-app.git`;
-  sparseCheckoutCmd = `cd ${appName} && git config core.sparseCheckout true`;
-  copyTemplateFolderCmd = `cd ${appName} && git sparse-checkout set templates/${appType} && git pull origin main`;
+  cloneCmd = `git clone --depth 1 https://github.com/constrod/template-${appType}-ts ${appName}`;
+  removeGitCmd = `cd ${appName} && rm -rf .git`;
 
   if (isInstallDependencies) {
     if (appType === 'react-native') {
@@ -97,23 +93,19 @@ const run = async () => {
     }
 
     const installOption = packageManager === 'npm' ? '--legacy-peer-deps' : '';
-    installCmd = `cd ${appName} && ${packageManager} install ${installOption}`;
+    installCommand = `cd ${appName} && ${packageManager} install ${installOption}`;
   }
 
-  const { error: makeFolderCmdError } = runCommand(makeFolderCmd);
-  if (makeFolderCmdError) hasError = true;
-  const { error: addGitCmdError } = runCommand(addGitCmd);
-  if (addGitCmdError) hasError = true;
-  const { error: sparseCheckoutCmdError } = runCommand(sparseCheckoutCmd);
-  if (sparseCheckoutCmdError) hasError = true;
-  const { error: copyTemplateFolderCmdError } = runCommand(copyTemplateFolderCmd);
-  if (copyTemplateFolderCmdError) hasError = true;
+  const { error: cloneCmdError } = runCommand(cloneCmd);
+  if (cloneCmdError) hasError = true;
+  const { error: removeGitCmdError } = runCommand(removeGitCmd);
+  if (removeGitCmdError) hasError = true;
 
   console.log(chalk.green('- Project created successfully.'));
 
   if (isInstallDependencies && packageManager) {
-    const { error: installCmdError } = runCommand(installCmd);
-    if (installCmdError) hasError = true;
+    const { error: errorInstall } = runCommand(installCommand);
+    if (errorInstall) hasError = true;
     console.log(chalk.green('- Installing the dependencies.'));
   }
 

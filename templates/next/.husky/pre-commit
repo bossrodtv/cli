@@ -1,5 +1,0 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-npm run pre-commit
-exec git diff --cached --name-only | npx cspell --no-summary --no-progress --no-must-find-files --file-list stdin
