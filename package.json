@@ -16,9 +16,20 @@
       "url": "https://github.com/constROD"
     }
   ],
-  "description": "Ready made CLI for creating a new app with typescript, eslint, prettier, commitlint and changeset.",
+  "description": "CLI for creating new app with TypeScript, ESLint, Prettier, Commitlint, TailwindCSS and etc.",
   "author": "Rodrick Alcantara <rialcantara21@gmail.com>",
   "license": "MIT",
+  "keywords": [
+    "create-app",
+    "tailwind",
+    "cli",
+    "typescript",
+    "eslint",
+    "prettier",
+    "commitlint",
+    "next.js",
+    "bossrodtv"
+  ],
   "scripts": {
     "dev": "nodemon ./cli/index.ts",
     "clean": "rm -rf ./dist",
