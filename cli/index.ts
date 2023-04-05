@@ -5,7 +5,7 @@ import clear from 'clear';
 import figlet from 'figlet';
 import gradient from 'gradient-string';
 import inquirer from 'inquirer';
-import { APPS, AppType, PackageManagerType, PACKAGE_MANAGERS } from './constants';
+import { APPS, AppType, PACKAGE_MANAGERS, PackageManagerType } from './constants';
 import { isFolderAlreadyExist, runCommand } from './utils';
 
 /* Welcome Page */
@@ -80,7 +80,7 @@ const run = async () => {
   if (isInstallDependencies) console.log(chalk.green('- Your wish is my command.'));
 
   const cleanCmd = `rm -rf ${appName}`;
-  cloneCmd = `git clone --depth 1 https://github.com/constrod/template-${appType}-ts ${appName}`;
+  cloneCmd = `git clone https://github.com/constrod/template-${appType}-ts ${appName}`;
   removeGitCmd = `cd ${appName} && rm -rf .git`;
 
   if (isInstallDependencies) {
