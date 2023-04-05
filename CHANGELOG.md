@@ -1,5 +1,16 @@
 # @bossrodtv/create-app
 
+## 1.3.2
+
+### Patch Changes
+
+- a6866c1: Changes
+
+  - Updated README
+  - Updated package.json scripts
+  - Updated ci.yml
+  - Updated clone scripts
+
 ## 1.3.1
 
 ### Patch Changes
