@@ -5,7 +5,7 @@ import clear from 'clear';
 import figlet from 'figlet';
 import gradient from 'gradient-string';
 import inquirer from 'inquirer';
-import { APPS, AppType, PACKAGE_MANAGERS, PackageManagerType } from './constants';
+import { APPS, AppType } from './constants';
 import { isFolderAlreadyExist, runCommand } from './utils';
 
 /* Welcome Page */
@@ -43,24 +43,12 @@ const askInstallDependencies = () =>
     },
   ]);
 
-const askPackageManager = () =>
-  inquirer.prompt<{ packageManager: PackageManagerType }>([
-    {
-      name: 'packageManager',
-      type: 'list',
-      message: 'What package manager do you want to use?:',
-      choices: PACKAGE_MANAGERS,
-      default: 'pnpm',
-    },
-  ]);
-
 /* Handler */
 const run = async () => {
   let hasError = false;
   let cloneCmd = '';
   let removeGitCmd = '';
   let installCommand = '';
-  let packageManager: PackageManagerType | null = null;
 
   const { appName } = await askAppName();
 
@@ -84,16 +72,7 @@ const run = async () => {
   removeGitCmd = `cd ${appName} && rm -rf .git`;
 
   if (isInstallDependencies) {
-    if (appType === 'react-native') {
-      console.log(chalk.yellow('- Note: Only pnpm is supported for react-native.'));
-      packageManager = 'pnpm';
-    } else {
-      const answer = await askPackageManager();
-      packageManager = answer.packageManager;
-    }
-
-    const installOption = packageManager === 'npm' ? '--legacy-peer-deps' : '';
-    installCommand = `cd ${appName} && ${packageManager} install ${installOption}`;
+    installCommand = `cd ${appName} && pnpm install --frozen-lockfile`;
   }
 
   const { error: cloneCmdError } = runCommand(cloneCmd);
@@ -103,7 +82,7 @@ const run = async () => {
 
   console.log(chalk.green('- Project created successfully.'));
 
-  if (isInstallDependencies && packageManager) {
+  if (isInstallDependencies) {
     const { error: errorInstall } = runCommand(installCommand);
     if (errorInstall) hasError = true;
     console.log(chalk.green('- Installing the dependencies.'));
