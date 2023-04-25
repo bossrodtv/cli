@@ -1,5 +1,14 @@
 # @bossrodtv/create-app
 
+## 1.3.3
+
+### Patch Changes
+
+- c1dc57b: Changes
+
+  - Enforce `pnpm` as the package manager.
+  - Update trigger of github action.
+
 ## 1.3.2
 
 ### Patch Changes
