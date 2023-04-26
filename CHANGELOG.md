@@ -1,4 +1,4 @@
-# @bossrodtv/create-app
+# @bossrodtv/cli
 
 ## 1.3.3
 
@@ -34,7 +34,7 @@
 
 - 7741731: Fix
 
-  - Removed templates from the create-app package
+  - Removed templates from the cli package
 
 ## 1.2.1
 

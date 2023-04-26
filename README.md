@@ -1,4 +1,4 @@
-# @bossrodtv/create-app
+# @bossrodtv/cli
 
 CLI for creating new app with TypeScript, ESLint, Prettier, Commitlint and etc.
 
@@ -14,7 +14,7 @@ CLI for creating new app with TypeScript, ESLint, Prettier, Commitlint and etc.
 - Install
 
 ```bash
-  npx @bossrodtv/create-app@latest
+  npx @bossrodtv/cli@latest
 ```
 
 - Navigate to your app folder and start coding.
