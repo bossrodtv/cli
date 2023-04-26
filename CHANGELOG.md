@@ -1,5 +1,13 @@
 # @bossrodtv/cli
 
+## 1.3.4
+
+### Patch Changes
+
+- bce9c24: Changes
+
+  - Renamed from create-app to cli
+
 ## 1.3.3
 
 ### Patch Changes
