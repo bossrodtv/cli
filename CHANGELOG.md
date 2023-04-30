@@ -1,5 +1,13 @@
 # @bossrodtv/cli
 
+## 1.4.0
+
+### Minor Changes
+
+- 92ebef5: Changes
+
+  - Add sst template
+
 ## 1.3.4
 
 ### Patch Changes
