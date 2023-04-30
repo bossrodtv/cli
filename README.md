@@ -7,7 +7,8 @@ CLI for creating new app with TypeScript, ESLint, Prettier, Commitlint and etc.
 | next                  |
 | react                 |
 | react-native          |
-| serverless            |
+| serverless-framework  |
+| sst                   |
 
 ## How to use:
 
