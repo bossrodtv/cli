@@ -1,11 +1,18 @@
 {
   "editor.tabSize": 2,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.organizeImports": true
   },
   "eslint.format.enable": true,
-  "eslint.lintTask.enable": true
+  "eslint.lintTask.enable": true,
+  "eslint.workingDirectories": [{ "mode": "auto" }] /* For Monorepo */,
+  "search.exclude": {
+    "**/node_modules": true,
+    "pnpm-lock.yaml": true,
+    "**/.pnpm-store": true,
+    "**/.sst": true
+  }
 }
