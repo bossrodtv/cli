@@ -24,9 +24,9 @@ CLI for creating new app with TypeScript, ESLint, Prettier, Commitlint and etc.
 
 #### For those interested in viewing the obsolete templates, the following links are provided:
 
-[template-react-ts](https://www.github.com/constROD/template-react-ts)
-[template-react-native-ts](https://www.github.com/constROD/template-react-native-ts)
-[template-serverless-framework-ts](https://www.github.com/constROD/template-serverless-framework-ts)
+- [template-react-ts](https://www.github.com/constROD/template-react-ts)
+- [template-react-native-ts](https://www.github.com/constROD/template-react-native-ts)
+- [template-serverless-framework-ts](https://www.github.com/constROD/template-serverless-framework-ts)
 
 ## Authors
 
