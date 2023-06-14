@@ -1,5 +1,17 @@
 # @bossrodtv/cli
 
+## 1.5.0
+
+### Minor Changes
+
+- 657fc25: Changes
+
+  - Updated README.md
+  - Unmaintained templates removed
+    - react
+    - react-native
+    - serverless-framework
+
 ## 1.4.0
 
 ### Minor Changes
