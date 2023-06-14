@@ -5,9 +5,6 @@ CLI for creating new app with TypeScript, ESLint, Prettier, Commitlint and etc.
 | List of app supported |
 | :-------------------- |
 | next                  |
-| react                 |
-| react-native          |
-| serverless-framework  |
 | sst                   |
 
 ## How to use:
@@ -22,10 +19,14 @@ CLI for creating new app with TypeScript, ESLint, Prettier, Commitlint and etc.
 
 ```bash
   cd <app-name>
-  pnpm dev # For web, serverless & node
-  pnpm dev:android # For react-native only (android)
-  pnpm dev:ios # For react-native only (ios)
+  pnpm dev
 ```
+
+#### For those interested in viewing the obsolete templates, the following links are provided:
+
+[template-react-ts](https://www.github.com/constROD/template-react-ts)
+[template-react-native-ts](https://www.github.com/constROD/template-react-native-ts)
+[template-serverless-framework-ts](https://www.github.com/constROD/template-serverless-framework-ts)
 
 ## Authors
 

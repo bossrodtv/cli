@@ -1,3 +1,3 @@
-export const APPS = ['next', 'react', 'react-native', 'serverless-framework', 'sst'] as const;
+export const APPS = ['next', 'sst'] as const;
 
-export type AppType = typeof APPS[number];
+export type AppType = (typeof APPS)[number];
