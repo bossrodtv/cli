@@ -32,7 +32,7 @@
     "bossrodtv"
   ],
   "scripts": {
-    "dev": "nodemon ./cli/index.ts",
+    "dev": "ts-node -r tsconfig-paths/register ./cli/index.ts",
     "clean": "rm -rf ./dist",
     "build": "pnpm clean && tsup ./cli/index.ts --format cjs,esm --dts",
     "release": "pnpm build && changeset publish",
