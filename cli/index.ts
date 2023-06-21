@@ -13,6 +13,11 @@ import { APPS, AppType } from './constants';
 clear();
 console.log(gradient.mind(figlet.textSync('bossROD TV', { horizontalLayout: 'full' })));
 
+console.log(chalk.cyanBright('Project: CLI for creating a new project'));
+console.log(chalk.cyanBright('YouTube: https://youtube.com/bossrodtv'));
+console.log(chalk.cyanBright('GitHub: https://github.com/bossrodtv/cli'));
+console.log('\n');
+
 /* Questions */
 function askAppName() {
   return inquirer.prompt<{ appName: string }>([
