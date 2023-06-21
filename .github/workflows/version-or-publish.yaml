@@ -21,12 +21,12 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2.2.4
         with:
-          version: 7
+          version: 8.6.1
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16.13.0
+          node-version: 16.14.2
           cache: 'pnpm'
 
       - name: Install Packages
@@ -41,4 +41,3 @@ jobs:
           title: 'chore(release): update version'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
