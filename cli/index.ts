@@ -1,20 +1,21 @@
 #!/usr/bin/env node
 
 import chalk from 'chalk';
+import { execSync } from 'child_process';
 import clear from 'clear';
 import figlet from 'figlet';
+import fs from 'fs';
 import gradient from 'gradient-string';
 import inquirer from 'inquirer';
 import { APPS, AppType } from './constants';
-import { isFolderAlreadyExist, runCommand } from './utils';
 
 /* Welcome Page */
 clear();
 console.log(gradient.mind(figlet.textSync('bossROD TV', { horizontalLayout: 'full' })));
 
 /* Questions */
-const askAppName = () =>
-  inquirer.prompt<{ appName: string }>([
+function askAppName() {
+  return inquirer.prompt<{ appName: string }>([
     {
       name: 'appName',
       type: 'input',
@@ -22,9 +23,10 @@ const askAppName = () =>
       default: 'my-app',
     },
   ]);
+}
 
-const askAppType = () =>
-  inquirer.prompt<{ appType: AppType }>([
+function askAppType() {
+  return inquirer.prompt<{ appType: AppType }>([
     {
       name: 'appType',
       type: 'list',
@@ -32,9 +34,10 @@ const askAppType = () =>
       choices: APPS,
     },
   ]);
+}
 
-const askInstallDependencies = () =>
-  inquirer.prompt<{ isInstallDependencies: boolean }>([
+function askInstallDependencies() {
+  return inquirer.prompt<{ isInstallDependencies: boolean }>([
     {
       name: 'isInstallDependencies',
       type: 'confirm',
@@ -42,9 +45,24 @@ const askInstallDependencies = () =>
       default: false,
     },
   ]);
+}
+
+/* Utils */
+function isFolderAlreadyExist(filePath: string) {
+  return fs.existsSync(filePath);
+}
+
+function runCommand(command: string) {
+  try {
+    execSync(`${command}`, { stdio: 'inherit' });
+  } catch (error) {
+    return { error };
+  }
+  return { error: null };
+}
 
 /* Handler */
-const run = async () => {
+async function run() {
   let hasError = false;
   let cloneCmd = '';
   let removeGitCmd = '';
@@ -102,6 +120,6 @@ const run = async () => {
   console.log(chalk.green('- Navigate to your project:'));
   console.log(chalk.cyan(`> cd ${appName}`));
   return;
-};
+}
 
 run();
